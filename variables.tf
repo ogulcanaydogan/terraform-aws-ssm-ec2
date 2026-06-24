@@ -155,7 +155,7 @@ variable "root_volume_throughput" {
   default     = null
 
   validation {
-    condition     = var.root_volume_throughput == null || (var.root_volume_throughput >= 125 && var.root_volume_throughput <= 1000)
+    condition     = var.root_volume_throughput == null ? true : (var.root_volume_throughput >= 125 && var.root_volume_throughput <= 1000)
     error_message = "root_volume_throughput must be between 125 and 1000 MiB/s."
   }
 }
